@@ -2,3 +2,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
+
+
+@custom-variant hover (&:hover); // there seems to be an issue with chrome compatibility and tw v4, where hover styles do not get applied at all. This is a workaround per https://github.com/tailwindlabs/tailwindcss/issues/16531#issuecomment-2658901967 until fixed

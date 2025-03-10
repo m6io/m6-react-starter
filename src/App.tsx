@@ -44,22 +44,24 @@ function App(): ReactNode {
           <div className="mt-4 flex items-center justify-center gap-4">
             <button
               onClick={() => setCount((c) => c + 1)}
-              className="rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+              className="cursor-pointer rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none active:bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-400"
+              aria-label={`Increment count, current count is ${count}`}
             >
               Count is: {count}
             </button>
 
             <button
               onClick={toggleDarkMode}
-              className="flex items-center gap-2 rounded-md bg-gray-200 px-4 py-2 text-gray-700 transition-colors hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+              className="flex cursor-pointer items-center gap-2 rounded-md bg-gray-200 px-4 py-2 text-gray-700 transition-colors hover:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:outline-none active:bg-gray-400 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:focus:ring-gray-500"
+              aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
             >
               {isDarkMode ? (
                 <>
-                  <FiSun /> Light
+                  <FiSun aria-hidden="true" /> Light
                 </>
               ) : (
                 <>
-                  <FiMoon /> Dark
+                  <FiMoon aria-hidden="true" /> Dark
                 </>
               )}
             </button>
@@ -155,7 +157,8 @@ import { AiOutlineHeart } from 'react-icons/ai'
               href="https://github.com/m6io/m6-react-starter"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline dark:text-blue-400"
+              className="cursor-pointer text-blue-600 hover:underline focus:rounded focus:ring-2 focus:ring-blue-500 focus:outline-none dark:text-blue-400 dark:hover:underline"
+              aria-label="Visit m6-react-starter on GitHub"
             >
               github.com/m6io/m6-react-starter
             </a>
