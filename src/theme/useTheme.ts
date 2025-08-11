@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 
-export const useTheme = (storageKey = 'vite-ui-theme') => {
+export const useTheme = (storageKey = 'm6-ui-theme') => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (document.documentElement.classList.contains('dark')) return true
+
     return localStorage.getItem(storageKey)
       ? localStorage.getItem(storageKey) === 'true'
       : window.matchMedia('(prefers-color-scheme: dark)').matches
   })
 
   useEffect(() => {
-    const root = window.document.documentElement
-    root.classList.remove('light', 'dark')
-    root.classList.add(isDarkMode ? 'dark' : 'light')
+    document.documentElement.classList.toggle('dark', isDarkMode)
+
     localStorage.setItem(storageKey, isDarkMode.toString())
   }, [isDarkMode, storageKey])
 
